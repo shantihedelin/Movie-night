@@ -44,6 +44,16 @@ export const fetchMovieSearch = createAsyncThunk(
   }
 );
 
+export const fetchMovieDetails = createAsyncThunk(
+  "movies/fetchMovieDetails",
+  async (id) => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
+    );
+    return response.data;
+  }
+);
+
 const moviesSlice = createSlice({
   name: "movies",
   initialState: {
@@ -51,6 +61,7 @@ const moviesSlice = createSlice({
     searchResults: [],
     topRated: [],
     favorites: getFavsFromLocalStorage(),
+    movieDetails: [],
     status: "idle",
     error: null,
   },
@@ -100,6 +111,17 @@ const moviesSlice = createSlice({
         state.topRated = action.payload;
       })
       .addCase(fetchTopRatedMovies.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(fetchMovieDetails.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchMovieDetails.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.movieDetails = action.payload;
+      })
+      .addCase(fetchMovieDetails.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });
