@@ -13,7 +13,7 @@ const saveFavsToLocalStorage = () => {
 };
 
 export const fetchPopularMovies = createAsyncThunk(
-  "movies/fetchMovies",
+  "movies/fetchPopularMovies",
   async () => {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
@@ -45,8 +45,9 @@ export const fetchMovieSearch = createAsyncThunk(
 const moviesSlice = createSlice({
   name: "movies",
   initialState: {
-    movies: [],
+    popularMovies: [],
     searchResults: [],
+    topRated: [],
     favorites: getFavsFromLocalStorage(),
     status: "idle",
     error: null,
@@ -72,7 +73,7 @@ const moviesSlice = createSlice({
       })
       .addCase(fetchPopularMovies.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.movies = action.payload;
+        state.popularMovies = action.payload;
       })
       .addCase(fetchPopularMovies.rejected, (state, action) => {
         state.status = "failed";
@@ -86,6 +87,17 @@ const moviesSlice = createSlice({
         state.searchResults = action.payload;
       })
       .addCase(fetchMovieSearch.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(fetchTopRatedMovies.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchTopRatedMovies.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.topRated = action.payload;
+      })
+      .addCase(fetchTopRatedMovies.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });
