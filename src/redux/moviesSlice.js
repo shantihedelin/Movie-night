@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+//TODO: put API_KEY in env.file
+
 const API_KEY = "b0aa22976a88a1f9ab9dbcd9828204b5";
 
 const getFavsFromLocalStorage = () => {

@@ -9,6 +9,7 @@ function App() {
   const dispatch = useDispatch();
   const popularMovies = useSelector((state) => state.movies.popularMovies);
   const topRatedMovies = useSelector((state) => state.movies.topRated);
+  const searchResults = useSelector((state) => state.movies.searchResults);
   const movieStatus = useSelector((state) => state.movies.status);
 
   useEffect(() => {
@@ -21,6 +22,19 @@ function App() {
     <>
       <Navbar />
       <div>
+        {searchResults.length > 0 && (
+          <>
+            <h2>Search Results</h2>
+            <Slidebar>
+              {searchResults.map((movie) => (
+                <div key={movie.id}>
+                  <li>{movie.title}</li>
+                  <button>Add to favorites</button>
+                </div>
+              ))}
+            </Slidebar>
+          </>
+        )}
         <div>
           <h2>Popular movies now</h2>
           <Slidebar>
