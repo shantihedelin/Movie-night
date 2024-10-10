@@ -12,12 +12,25 @@ const saveFavsToLocalStorage = () => {
   localStorage.setItem("favorites", JSON.stringify(favorites));
 };
 
-export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
-  );
-  return response.data.results;
-});
+export const fetchPopularMovies = createAsyncThunk(
+  "movies/fetchMovies",
+  async () => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+    );
+    return response.data.results;
+  }
+);
+
+export const fetchTopRatedMovies = createAsyncThunk(
+  "movies/fetchTopRatedMovies",
+  async () => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
+    );
+    return response.data.results;
+  }
+);
 
 export const fetchMovieSearch = createAsyncThunk(
   "movies/fetchMovieSearch",
@@ -54,14 +67,14 @@ const moviesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchMovies.pending, (state) => {
+      .addCase(fetchPopularMovies.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchMovies.fulfilled, (state, action) => {
+      .addCase(fetchPopularMovies.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.movies = action.payload;
       })
-      .addCase(fetchMovies.rejected, (state, action) => {
+      .addCase(fetchPopularMovies.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       })
