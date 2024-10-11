@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovieDetails } from "../redux/moviesSlice";
+import Navbar from "../components/Navbar";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -16,6 +17,7 @@ const MovieDetails = () => {
 
   return (
     <div>
+      <Navbar showSearchBar={false}/>
       {movieDetails ? (
         <div>
           <h1>{movieDetails.title}</h1>

@@ -1,5 +1,6 @@
 import { removeMovieFromFavList } from "../redux/moviesSlice";
 import { useSelector, useDispatch } from "react-redux";
+import Navbar from "../components/Navbar";
 
 export default function Favorites() {
   const favorites = useSelector((state) => state.movies.favorites);
@@ -11,6 +12,7 @@ export default function Favorites() {
 
   return (
     <div>
+      <Navbar showSearchBar={false}/>
       {favorites.length > 0 ? (
         favorites.map((favorite) => (
           <div key={favorite.id}>
