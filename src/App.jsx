@@ -21,7 +21,7 @@ function App() {
   }, [movieStatus, dispatch]);
 
   return (
-    <div className="">
+    <div className="max-h-full">
       <Navbar />
       <div>
         {searchResults.length > 0 && (
@@ -35,7 +35,7 @@ function App() {
           </>
         )}
         <div>
-          <h2 className="bg-pink-400">Popular movies now</h2>
+          <h2 className="bg-pink-500">Popular movies now</h2>
           <Slidebar>
             {popularMovies.map((movie) => (
               <Moviecard key={movie.id} movie={movie} />

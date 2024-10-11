@@ -19,8 +19,11 @@ export default function SearchBar() {
         placeholder="Search for movies..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
+        className="rounded-l-3xl px-4 w-72 h-[50px] border-none"
+      >
+      </input>
+      <button onClick={handleSearch}
+      className="h-[52px] border-none rounded-r-3xl bg-green-400 px-4 ">Search</button>
     </div>
   );
 }
