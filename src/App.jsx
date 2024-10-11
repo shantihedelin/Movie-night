@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Slidebar from "./components/Slidebar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AddToFavoritesBtn from "./components/AddToFavsBtn";
 import { Link } from "react-router-dom";
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
               {searchResults.map((movie) => (
                 <div>
                   <li key={movie.id}>{movie.title}</li>
-                  <button>Add to favorites</button>
+                  <AddToFavoritesBtn movie={movie} />
                 </div>
               ))}
             </Slidebar>
@@ -43,9 +44,9 @@ function App() {
             {popularMovies.map((movie) => (
               <div className="bg-green-400">
                 <Link to={`/movies/${movie.id}`}>
-                  <li key={movie.id}>{movie.title}</li>{" "}
+                  <li key={movie.id} className="list-none">{movie.title}</li>{" "}
                 </Link>
-                <button>Add to favorites</button>
+                <AddToFavoritesBtn movie={movie} />
               </div>
             ))}
           </Slidebar>
@@ -53,8 +54,8 @@ function App() {
           <Slidebar>
             {topRatedMovies.map((movie) => (
               <div>
-                <li key={movie.id}>{movie.title}</li>
-                <button>Add to favorites</button>
+                <li key={movie.id} className="list-none">{movie.title}</li>
+                <AddToFavoritesBtn movie={movie} />
               </div>
             ))}
           </Slidebar>

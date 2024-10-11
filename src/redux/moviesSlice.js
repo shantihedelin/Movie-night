@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 
 //TODO: put API_KEY in env.file
 
@@ -10,47 +9,63 @@ const getFavsFromLocalStorage = () => {
   return savedFavorites ? JSON.parse(savedFavorites) : [];
 };
 
-const saveFavsToLocalStorage = () => {
+const saveFavsToLocalStorage = (favorites) => {
   localStorage.setItem("favorites", JSON.stringify(favorites));
 };
 
 export const fetchPopularMovies = createAsyncThunk(
   "movies/fetchPopularMovies",
   async () => {
-    const response = await axios.get(
+    const response = await fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
     );
-    return response.data.results;
+    if (!response.ok) {
+      throw new Error("Failed to fetch popular movies");
+    }
+    const data = await response.json();
+    return data.results;
   }
 );
 
 export const fetchTopRatedMovies = createAsyncThunk(
   "movies/fetchTopRatedMovies",
   async () => {
-    const response = await axios.get(
+    const response = await fetch(
       `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
     );
-    return response.data.results;
+    if (!response.ok) {
+      throw new Error("Failed to fetch top-rated movies");
+    }
+    const data = await response.json();
+    return data.results;
   }
 );
 
 export const fetchMovieSearch = createAsyncThunk(
   "movies/fetchMovieSearch",
   async (query) => {
-    const response = await axios.get(
+    const response = await fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
     );
-    return response.data.results;
+    if (!response.ok) {
+      throw new Error("Failed to search for movies");
+    }
+    const data = await response.json();
+    return data.results;
   }
 );
 
 export const fetchMovieDetails = createAsyncThunk(
   "movies/fetchMovieDetails",
   async (id) => {
-    const response = await axios.get(
+    const response = await fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
     );
-    return response.data;
+    if (!response.ok) {
+      throw new Error("Failed to fetch movie details");
+    }
+    const data = await response.json();
+    return data;
   }
 );
 
