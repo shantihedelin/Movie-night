@@ -21,7 +21,7 @@ function App() {
   }, [movieStatus, dispatch]);
 
   return (
-    <div className="max-h-full">
+    <div className="max-h-full bg-blue-100">
       <Navbar />
       <div>
         {searchResults.length > 0 && (
@@ -35,13 +35,13 @@ function App() {
           </>
         )}
         <div>
-          <h2 className="bg-pink-500">Popular movies now</h2>
+          <h2 className="text-3xl m-0 mt-8 text-start ml-6">Popular movies now</h2>
           <Slidebar>
             {popularMovies.map((movie) => (
-              <Moviecard key={movie.id} movie={movie} />
+              <Moviecard key={movie.id} movie={movie}/>
             ))}
           </Slidebar>
-          <h2>Top rated</h2>
+          <h2 className="text-3xl m-0 text-start mt-8 ml-6">Top rated</h2>
           <Slidebar>
             {topRatedMovies.map((movie) => (
               <Moviecard key={movie.id} movie={movie} />

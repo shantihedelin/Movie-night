@@ -8,12 +8,13 @@ export default function Navbar({ showSearchBar = true }) {
       <div className="flex justify-between px-4">
         <Link to="/" className="text-white no-underline">
           <div>
-            <h1 className="text-3xl m-0 md:text-4xl lg:text-6xl">FILMKVÄLL</h1>
-            <p className="text-sm mt-0 mb-8 md:text-lg">
+            <h1 className="text-3xl m-0 md:text-4xl">FILMKVÄLL</h1>
+            <p className="text-sm mt-0 mb-8 md:text-lg md:mb-2">
               Hemmakvälls filmbibliotek
             </p>
           </div>
         </Link>
+
         <Link
           to="/favorites"
           className="text-white mt-2 no-underline md:text-lg lg:text-xl"

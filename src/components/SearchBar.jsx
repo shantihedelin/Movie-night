@@ -23,7 +23,7 @@ export default function SearchBar() {
       >
       </input>
       <button onClick={handleSearch}
-      className="h-[52px] border-none rounded-r-3xl bg-green-400 px-4 ">Search</button>
+      className="h-[52px] border-none rounded-r-3xl bg-green-400 px-4">Search</button>
     </div>
   );
 }
