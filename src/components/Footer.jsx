@@ -1,8 +1,9 @@
 export default function Footer() {
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white pt-1">
+      <h1 className="text-6xl">FILMKVÄLL</h1>
       <div>
-        <h3>OM HEMMAKVÄLL</h3>
+        <h3>OM FILMKVÄLL</h3>
         <a>OM OSS</a>
         <a>KONTAKTA OSS</a>
         <a>LEDIGA TJÄNSTER</a>
@@ -14,7 +15,7 @@ export default function Footer() {
       </div>
       <div>
         <h3>KUNDKLUBBEN</h3>
-        <a>HEMMAKVÄLLS KUNDKLUBB</a>
+        <a>FILMKVÄLLS KUNDKLUBB</a>
         <a>LADDA NER FÖR IPHONE</a>
         <a>LADDA NER FÖR ANDROID</a>
       </div>
@@ -27,13 +28,13 @@ export default function Footer() {
         <a>MYNEWSDESK</a>
       </div>
       <div>
-        <span>©2024 Hemmakväll</span>
+        <span>©2024 Filmkväll</span>
         <a>Frågor? Kontakta oss!</a>
         <a>Hantera cookies</a>
         <a>Integritetspolicy</a>
         <a>Tävlingspolicy</a>
       </div>
-      <span>©2024 Hemmakväll</span>
+      <span>©2024 Filmkväll</span>
     </div>
   );
 }

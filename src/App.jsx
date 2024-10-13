@@ -6,6 +6,7 @@ import Slidebar from "./components/Slidebar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Moviecard from "./components/Moviecard";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function App() {
   return (
     <div className="max-h-full bg-blue-100">
       <Navbar />
-      <div>
+      <div className="pb-20">
         {searchResults.length > 0 && (
           <>
             <h2>Search Results</h2>
