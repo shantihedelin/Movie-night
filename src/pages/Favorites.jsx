@@ -1,6 +1,7 @@
 import { removeMovieFromFavList } from "../redux/moviesSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../components/Navbar";
+import { Helmet } from "react-helmet";
 
 export default function Favorites() {
   const favorites = useSelector((state) => state.movies.favorites);
@@ -10,9 +11,13 @@ export default function Favorites() {
     dispatch(removeMovieFromFavList(movieId));
   };
 
+  //* Den här sidan indexeras inte.
   return (
     <div>
-      <Navbar showSearchBar={false}/>
+      <Helmet>
+        <title>Dina favorit filmer</title>
+      </Helmet>
+      <Navbar showSearchBar={false} />
       {favorites.length > 0 ? (
         favorites.map((favorite) => (
           <div key={favorite.id}>

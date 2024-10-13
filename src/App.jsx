@@ -6,7 +6,7 @@ import Slidebar from "./components/Slidebar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Moviecard from "./components/Moviecard";
-import SearchBar from "./components/SearchBar";
+import { Helmet } from "react-helmet";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +23,26 @@ function App() {
 
   return (
     <div className="max-h-full bg-blue-100">
+      <Helmet>
+        <title>Filmkväll - hitta dom bästa filmerna</title>
+        <meta
+          name="desription"
+          content="Upptäck dom populäraste och mest gillade filmerna just nu. Sök efter din favoritfilmer och lägg till dom i din lista."
+        />
+        <meta
+          name="keywords"
+          content="movies, filmer, film, populära filmer, top rated, sök efter film, favoritfilm"
+        />
+        <meta
+          property="og:title"
+          content="Filmkväll - Upptäck ppulära och dom mest gillade filmerna just nu."
+        />
+        <meta
+          property="og:description"
+          content="Upptäck dom populäraste och mest gillade filmerna just nu. Lägg till dina favorit filmer till din lista."
+        />
+        <meta property="og:image" content="/og-img.jpg" />
+      </Helmet>
       <Navbar />
       <div className="pb-20">
         {searchResults.length > 0 && (
@@ -36,10 +56,12 @@ function App() {
           </>
         )}
         <div>
-          <h2 className="text-3xl m-0 mt-8 text-start ml-6">Popular movies now</h2>
+          <h2 className="text-3xl m-0 mt-8 text-start ml-6">
+            Popular movies now
+          </h2>
           <Slidebar>
             {popularMovies.map((movie) => (
-              <Moviecard key={movie.id} movie={movie}/>
+              <Moviecard key={movie.id} movie={movie} />
             ))}
           </Slidebar>
           <h2 className="text-3xl m-0 text-start mt-8 ml-6">Top rated</h2>

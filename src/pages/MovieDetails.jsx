@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovieDetails } from "../redux/moviesSlice";
 import Navbar from "../components/Navbar";
+import { Helmet } from "react-helmet";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -17,7 +18,24 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <Navbar showSearchBar={false}/>
+      <Helmet>
+        <title>{movie.title} - information</title>
+        <meta
+          name="description"
+          content={`Läs mer om ${movie.title}, skådespelarna, betyg och mer`}
+        />
+        <meta
+          name="keywords"
+          content="filmdetaljer, filminfo, filmfakta, cast, betyg"
+        />
+        <meta property="og:title" content={movie.title} />
+        <meta
+          property="og:description"
+          content={`Läs mer om ${movie.title}. skådespelarna, betyg och mer.`}
+        />
+        <meta property="og:image" content={movie.posterUrl} />
+      </Helmet>
+      <Navbar showSearchBar={false} />
       {movieDetails ? (
         <div>
           <h1>{movieDetails.title}</h1>
