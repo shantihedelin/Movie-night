@@ -9,9 +9,9 @@ export default function Moviecard({ movie }) {
         className="list-none no-underline text-black text-md"
       >
         <img
-          src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
-          className="h-48 md:h-auto"
+          className="h-48 md:h-72"
         ></img>
         <li key={movie.id}>{movie.title}</li>
       </Link>
