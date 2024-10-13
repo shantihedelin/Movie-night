@@ -12,3 +12,33 @@ html {
   margin: 0;
   padding: 0;
 }
+
+.images {
+  display: flex;
+  border: 1px solid;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  @apply bg-white shadow-sm;
+  @apply max-w-7xl mx-auto;
+  @apply transition-all duration-300 ease-in-out;
+  @apply shadow-md;
+  @apply border-b-2 border-gray-200;
+
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+}
+
+/* .navbar {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+} */
+
+
+

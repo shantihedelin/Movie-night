@@ -22,7 +22,7 @@ function App() {
   }, [movieStatus, dispatch]);
 
   return (
-    <div className="max-h-full bg-blue-100">
+    <div className="max-h-full bg-blue-200">
       <Helmet>
         <title>Filmkväll - hitta dom bästa filmerna</title>
         <meta
@@ -44,7 +44,7 @@ function App() {
         <meta property="og:image" content="/og-img.jpg" />
       </Helmet>
       <Navbar />
-      <div className="pb-20">
+      <div className="pb-52">
         {searchResults.length > 0 && (
           <>
             <h2>Search Results</h2>

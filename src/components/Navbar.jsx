@@ -4,7 +4,7 @@ import { FaHeart } from "react-icons/fa";
 
 export default function Navbar({ showSearchBar = true }) {
   return (
-    <div className="bg-black text-white py-6 md:px-8">
+    <div className="bg-black text-white py-6 md:px-8 navbar">
       <div className="flex justify-between px-4">
         <Link to="/" className="text-white no-underline">
           <div>
