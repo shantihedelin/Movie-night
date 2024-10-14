@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import rocketsReducer from "./rocketsSlice";
-import launchesReducer from "./launchesSlice";
+import moviesReducer from "./moviesSlice";
 
 export const store = configureStore({
   reducer: {
-    rockets: rocketsReducer,
-    launches: launchesReducer,
+    movies: moviesReducer,
   },
 });
