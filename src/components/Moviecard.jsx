@@ -3,7 +3,7 @@ import AddToFavoritesBtn from "./AddToFavsBtn";
 
 export default function Moviecard({ movie }) {
   return (
-    <div className="">
+    <div className="moviecard">
       <Link
         to={`/movies/${movie.id}`}
         className="list-none no-underline text-black text-md"
