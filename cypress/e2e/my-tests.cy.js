@@ -10,7 +10,7 @@ describe("Homepage Test", () => {
 // TEST FÖR FILMDETALJER
 describe("Movie Details Page", () => {
   it("should navigate to a movie details page and display movie information", () => {
-    cy.visit("/"); // Besök startsidan
+    cy.visit("https://movie-night-taupe.vercel.app/"); // Besök startsidan
     cy.get('[data-test="moviecard"]').first().click(); // Klicka på första filmen
     cy.url().should("include", "/movies"); // Kolla så url:en är rätt
     cy.contains("Release date:"); // Kolla så detaljerna visas
@@ -21,7 +21,7 @@ describe("Movie Details Page", () => {
 // TEST
 describe("See what is rendered", () => {
   it("should render what is rendered", () => {
-    cy.visit("/");
+    cy.visit("https://movie-night-taupe.vercel.app/");
     cy.get("body").then(($body) => {
       cy.log($body.html()); // Skriver ut hela HTML-innehållet på sidan
     });
