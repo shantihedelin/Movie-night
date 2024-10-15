@@ -17,7 +17,7 @@ const MovieDetails = () => {
   }, [dispatch, id]);
 
   return (
-    <div>
+    <div className="bg-blue-200 pb-8 md:pb-52">
       <Helmet>
         <title>{movieDetails.title}</title>
         <meta
@@ -37,15 +37,17 @@ const MovieDetails = () => {
       </Helmet>
       <Navbar showSearchBar={false} />
       {movieDetails ? (
-        <div>
-          <h1>{movieDetails.title}</h1>
+        <div className="px-8 pt-12 md:flex md:justify-around">
           <img
             src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
-            alt={movieDetails.title}
+            alt={movieDetails.title} className="w-72 object-contain"
           />
-          <p>{movieDetails.overview}</p>
-          <p>Release date: {movieDetails.release_date}</p>
-          <p>Rating: {movieDetails.vote_average}/10</p>
+          <div className="md:justify-center items-center">
+            <h1>{movieDetails.title}</h1>
+            <p>{movieDetails.overview}</p>
+            <p>Release date: {movieDetails.release_date}</p>
+            <p>Rating: {movieDetails.vote_average}/10</p>
+          </div>
         </div>
       ) : (
         <p>Loading...</p>
