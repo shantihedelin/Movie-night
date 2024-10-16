@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-//TODO: put API_KEY in env.file
-
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 const getFavsFromLocalStorage = () => {

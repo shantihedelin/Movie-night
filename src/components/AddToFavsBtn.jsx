@@ -12,6 +12,7 @@ export default function AddToFavoritesBtn({ movie }) {
 
   const isFavorite = favorites.some((fav) => fav.id === movie.id);
 
+//* SEO
   const handleToggleFavorite = () => {
     if (isFavorite) {
       dispatch(removeMovieFromFavList(movie.id));
@@ -35,14 +36,17 @@ export default function AddToFavoritesBtn({ movie }) {
   };
 
   return (
-    <button onClick={handleToggleFavorite} className="bg-transparent border-none">
+    <button
+      onClick={handleToggleFavorite}
+      className="bg-transparent border-none"
+    >
       {isFavorite ? (
         <p className="text-red-400 hover:cursor-pointer flex">
-          <FaHeart className="w-6 h-4"/>
+          <FaHeart className="w-6 h-4" />
         </p>
       ) : (
         <p className="hover:cursor-pointer flex">
-          <FaRegHeart className="flex w-6 h-4"/>
+          <FaRegHeart className="flex w-6 h-4" />
         </p>
       )}
     </button>
