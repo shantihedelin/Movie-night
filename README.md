@@ -2,7 +2,7 @@
 
 Filmkväll på uppdrag av Hemmakväll - Hemmakvälls filmbibliotek
 
-En filmapplikation för att visa filmer från TMDB api och tillåter användare att läsa filmdetaljer och lägga till filmer i sin favoritlista. Det går även att söka efter filmer. 
+En filmapplikation för att visa filmer från TMDB api och tillåter användare att läsa filmdetaljer och lägga till filmer i sin favoritlista. Det går även att söka efter filmer. Skapad i Vite. 
 
 Projektet finns publicerat på Vercel och hittas via denna [länk](https://movie-night-taupe.vercel.app/). 
 
@@ -11,6 +11,32 @@ Projektet finns publicerat på Vercel och hittas via denna [länk](https://movie
 - Se detaljer om varje film
 - Lägg till och ta bort filmer från din favoritlista
 - Sök efter filmer med en sökfunktion
+
+## Komponenter: 
+ - AddToFavsBtn: tillåter användare att lägga till i sin favoritlista och ta bort.
+ - Searchbar: tillåter användare att söka efter filmer
+ - Slidebar
+ - Moviecard
+ - Footer
+ - Navbar
+
+## Sidor:
+- Startsida(/) - här visas alla filmer
+- Favorites - visning av favoritfilmer
+- MovieDetails - visning av film detaljer för en specifik film
+
+## Tekniker & sånt som har använts för att uppfylla kritierierna:
+- Redux Toolkit - hantera state för film och favoritlista.
+- Local Storage för att spara favoritlistan.
+- Api hantering - TMDB.
+- SEO optimering med sitemap, robots.txt, metatags, Google Tag Manager(GTM) och Google Analytics(GA)
+- Responsiv design för mobil, surfplatta, dator.
+- Cypress e2e tester.
+- Git commits & branching - main branch & development branch.
+- React Hooks: useEffect & useState
+
+## SEO:
+- GA och GTM är implementerat och även en tag för att spåra när filmer läggs till och tas bort från favoritlistan har lagts till. Metatags som title, description och og-tags för delning via sociala medier har lagts till.
 
 ## Installation och körning av applikationen:
 
