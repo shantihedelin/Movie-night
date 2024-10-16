@@ -37,7 +37,7 @@ const MovieDetails = () => {
       </Helmet>
       <Navbar showSearchBar={false} />
       {movieDetails ? (
-        <div className="px-8 pt-12 md:flex md:justify-around">
+        <div className="px-8 pt-12 md:flex md:justify-around md:px-20 md:space-x-16">
           <img
             src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
             alt={movieDetails.title} className="w-72 object-contain"
