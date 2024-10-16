@@ -34,6 +34,7 @@ Projektet finns publicerat på Vercel och hittas via denna [länk](https://movie
 - Cypress e2e tester.
 - Git commits & branching - main branch & development branch.
 - React Hooks: useEffect & useState
+- React Router Dom for navigation
 
 ## SEO:
 - GA och GTM är implementerat och även en tag för att spåra när filmer läggs till och tas bort från favoritlistan har lagts till. Metatags som title, description och og-tags för delning via sociala medier har lagts till.
