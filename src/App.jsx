@@ -70,7 +70,6 @@ function App() {
                 </button>
               </div>
             </div>
-
             <Slidebar>
               {searchResults.map((movie) => (
                 <Moviecard key={movie.id} movie={movie} />

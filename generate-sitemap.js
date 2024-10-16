@@ -1,8 +1,7 @@
 import fs from "fs";
 import fetch from "node-fetch";
 import path from "path";
-import 'dotenv/config';  // Detta läser din .env-fil
-
+import "dotenv/config"; // dotenv läser .env-filen
 
 // Funktion för att generera sitemapen
 const generateSitemap = async () => {
@@ -10,9 +9,6 @@ const generateSitemap = async () => {
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.VITE_TMDB_API_KEY}`
   );
   const data = await response.json();
-  console.log("Using API key:", process.env.VITE_TMDB_API_KEY);  // Lägg till detta för att kontrollera att nyckeln läses korrekt
-
-  console.log("API Response:", data); // Lägg till detta för att se vad som returneras
 
   // Kontrollera om 'results' existerar och har data
   if (!data.results || data.results.length === 0) {
