@@ -27,11 +27,11 @@ Projektet finns publicerat på Vercel och hittas via denna [länk](https://movie
 
 
 ### Senaste testningarna gjordes 15/10:
-- Test för startisdan
+- **Test för startisdan**  
 Testar att startsidan laddas och att populära filmer visas.
-- Test för filmens detaljer
+- **Test för filmens detaljer**  
 Testar att användaren kan navigera till en films detaljer och att rätt information visas.
-- Test för rendering
+- **Test för rendering**  
 Loggar hela sidans HTML-innehåll för att säkerställa att allt renderas korrekt. 
 
 Alla tester gick igenom under den senaste körningen och visade att applikationen fungerar som förväntat.
