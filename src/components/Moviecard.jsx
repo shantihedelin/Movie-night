@@ -13,9 +13,11 @@ export default function Moviecard({ movie }) {
           alt={movie.title}
           className="h-48 md:h-72 images"
         ></img>
-        <li key={movie.id}>{movie.title}</li>
       </Link>
-      <AddToFavoritesBtn movie={movie} />
+      <div className="flex justify-around items-center">
+        <li key={movie.id} className="list-none">{movie.title}</li>
+        <AddToFavoritesBtn movie={movie} />
+      </div>
     </div>
   );
 }

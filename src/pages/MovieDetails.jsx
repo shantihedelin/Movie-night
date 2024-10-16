@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovieDetails } from "../redux/moviesSlice";
 import Navbar from "../components/Navbar";
 import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -12,12 +13,10 @@ const MovieDetails = () => {
 
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
-    console.log(id);
-    console.log(movieDetails);
   }, [dispatch, id]);
 
   return (
-    <div>
+    <>    <div className="bg-blue-200 pb-8 md:pb-52">
       <Helmet>
         <title>{movieDetails.title}</title>
         <meta
@@ -37,20 +36,26 @@ const MovieDetails = () => {
       </Helmet>
       <Navbar showSearchBar={false} />
       {movieDetails ? (
-        <div>
-          <h1>{movieDetails.title}</h1>
+        <div className="px-8 pt-12 md:flex md:justify-around md:px-20 md:space-x-16">
           <img
             src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
             alt={movieDetails.title}
+            className="w-72 object-contain"
           />
-          <p>{movieDetails.overview}</p>
-          <p>Release date: {movieDetails.release_date}</p>
-          <p>Rating: {movieDetails.vote_average}/10</p>
+          <div className="md:justify-center items-center">
+            <h1>{movieDetails.title}</h1>
+            <p>{movieDetails.overview}</p>
+            <p>Release date: {movieDetails.release_date}</p>
+            <p>Rating: {movieDetails.vote_average}/10</p>
+          </div>
         </div>
       ) : (
         <p>Loading...</p>
       )}
     </div>
+    <Footer/>
+    </>
+
   );
 };
 

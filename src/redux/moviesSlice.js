@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 //TODO: put API_KEY in env.file
 
-const API_KEY = "b0aa22976a88a1f9ab9dbcd9828204b5";
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 const getFavsFromLocalStorage = () => {
   const savedFavorites = localStorage.getItem("favorites");
@@ -75,8 +75,8 @@ const moviesSlice = createSlice({
     popularMovies: [],
     searchResults: [],
     topRated: [],
-    favorites: getFavsFromLocalStorage(),
     movieDetails: [],
+    favorites: getFavsFromLocalStorage(),
     status: "idle",
     error: null,
   },

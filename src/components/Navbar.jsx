@@ -14,7 +14,6 @@ export default function Navbar({ showSearchBar = true }) {
             </p>
           </div>
         </Link>
-
         <Link
           to="/favorites"
           className="text-white mt-2 no-underline md:text-lg lg:text-xl"

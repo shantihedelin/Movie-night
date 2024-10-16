@@ -1,11 +1,12 @@
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPopularMovies, fetchTopRatedMovies } from "./redux/moviesSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Slidebar from "./components/Slidebar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Moviecard from "./components/Moviecard";
+import { RxCross1 } from "react-icons/rx";
 import { Helmet } from "react-helmet";
 
 function App() {
@@ -14,12 +15,23 @@ function App() {
   const topRatedMovies = useSelector((state) => state.movies.topRated);
   const searchResults = useSelector((state) => state.movies.searchResults);
   const movieStatus = useSelector((state) => state.movies.status);
+  const [showSearchResults, setShowSearchResults] = useState(true);
 
   useEffect(() => {
     if (movieStatus === "idle") {
       dispatch(fetchPopularMovies()) && dispatch(fetchTopRatedMovies());
     }
   }, [movieStatus, dispatch]);
+
+  useEffect(() => {
+    if (searchResults.length > 0) {
+      setShowSearchResults(true); // Återställ så att sökresultaten visas vid en ny sökning
+    }
+  }, [searchResults]);
+
+  const toggleSearchResults = () => {
+    setShowSearchResults(!showSearchResults);
+  };
 
   return (
     <div className="max-h-full bg-blue-200">
@@ -45,9 +57,20 @@ function App() {
       </Helmet>
       <Navbar />
       <div className="pb-52">
-        {searchResults.length > 0 && (
+        {searchResults.length > 0 && showSearchResults && (
           <>
-            <h2>Search Results</h2>
+            <div className="flex">
+              <h2 className="flex w-full ml-6">Search Results</h2>
+              <div className="flex justify-end w-full">
+                <button
+                  onClick={toggleSearchResults}
+                  className="bg-transparent border-none mr-6"
+                >
+                  <RxCross1 className="flex hover:cursor-pointer text-2xl" />
+                </button>
+              </div>
+            </div>
+
             <Slidebar>
               {searchResults.map((movie) => (
                 <Moviecard key={movie.id} movie={movie} />
