@@ -65,3 +65,6 @@ Alla tester gick igenom under den senaste körningen och visade att applikatione
 
 ## Licens
 Det här projektet är licensierat under MIT-licensen.
+
+## Time management
+Började med att implementera Redux Toolkit och att få alla nödvändiga fetches på plats och kunna hämta data. Gick sedan över till att få allt det funktionella på hemsidan att funka så som att kunna navigera till filmdetaljer-sidan, lägga till i favoriter, local storage m.m. Gjorde klart alla komponenter och sidor. Gjorde sedan en basic styling av sidan och gjorde den responsiv. Implementerade sedan SEO och GTM och GA, Sitemap och robots.txt. Avslutade med Cypress tester och README fil. 
