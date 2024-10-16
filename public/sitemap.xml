@@ -8,7 +8,7 @@
   </url>
 
   <url>
-    <loc>"moviedetails"</loc>
+  <loc>https://movie-night-taupe.vercel.app/movie-details/{id}</loc>
     <lastmod>2024-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

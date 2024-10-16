@@ -15,7 +15,7 @@ export default function AddToFavoritesBtn({ movie }) {
   const handleToggleFavorite = () => {
     if (isFavorite) {
       dispatch(removeMovieFromFavList(movie.id));
-      // Skicka en händelse till dataLayer när en film tas bort från favoriter
+      // Skicka en händelse till dataLayer när en film tas bort från favoriter(GA)
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "remove_from_favorites",
@@ -24,7 +24,7 @@ export default function AddToFavoritesBtn({ movie }) {
       });
     } else {
       dispatch(addMovieToFavList(movie));
-      // Skicka en händelse till dataLayer när en film läggs till i favoriter
+      // Skicka en händelse till dataLayer när en film läggs till i favoriter(GA)
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "add_to_favorites",
