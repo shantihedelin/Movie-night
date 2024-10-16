@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
+import { FaHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 import {
   addMovieToFavList,
   removeMovieFromFavList,
@@ -33,8 +35,16 @@ export default function AddToFavoritesBtn({ movie }) {
   };
 
   return (
-    <button onClick={handleToggleFavorite}>
-      {isFavorite ? "Remove from Favorites" : "Add to favorites"}
+    <button onClick={handleToggleFavorite} className="bg-transparent border-none">
+      {isFavorite ? (
+        <p className="text-red-400 hover:cursor-pointer flex">
+          <FaHeart className="w-6 h-4"/>
+        </p>
+      ) : (
+        <p className="hover:cursor-pointer flex">
+          <FaRegHeart className="flex w-6 h-4"/>
+        </p>
+      )}
     </button>
   );
 }

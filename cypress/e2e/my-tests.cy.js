@@ -18,7 +18,7 @@ describe("Movie Details Page", () => {
   });
 });
 
-// TEST
+// TEST FÖR RENDERING
 describe("See what is rendered", () => {
   it("should render what is rendered", () => {
     cy.visit("https://movie-night-taupe.vercel.app/");
