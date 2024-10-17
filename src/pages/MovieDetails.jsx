@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovieDetails } from "../redux/moviesSlice";
+import { fetchMovieDetails } from "../redux/movieDetailsSlice";
 import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 const MovieDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const movieDetails = useSelector((state) => state.movies.movieDetails);
+  const movieDetails = useSelector((state) => state.movieDetails.movieDetails);
 
   useEffect(() => {
     dispatch(fetchMovieDetails(id));

@@ -25,20 +25,6 @@ export const fetchPopularMovies = createAsyncThunk(
   }
 );
 
-export const fetchTopRatedMovies = createAsyncThunk(
-  "movies/fetchTopRatedMovies",
-  async () => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch top-rated movies");
-    }
-    const data = await response.json();
-    return data.results;
-  }
-);
-
 export const fetchMovieSearch = createAsyncThunk(
   "movies/fetchMovieSearch",
   async (query) => {
@@ -53,27 +39,11 @@ export const fetchMovieSearch = createAsyncThunk(
   }
 );
 
-export const fetchMovieDetails = createAsyncThunk(
-  "movies/fetchMovieDetails",
-  async (id) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch movie details");
-    }
-    const data = await response.json();
-    return data;
-  }
-);
-
 const moviesSlice = createSlice({
   name: "movies",
   initialState: {
     popularMovies: [],
     searchResults: [],
-    topRated: [],
-    movieDetails: [],
     favorites: getFavsFromLocalStorage(),
     status: "idle",
     error: null,
@@ -113,28 +83,6 @@ const moviesSlice = createSlice({
         state.searchResults = action.payload;
       })
       .addCase(fetchMovieSearch.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
-      })
-      .addCase(fetchTopRatedMovies.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(fetchTopRatedMovies.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.topRated = action.payload;
-      })
-      .addCase(fetchTopRatedMovies.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
-      })
-      .addCase(fetchMovieDetails.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(fetchMovieDetails.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.movieDetails = action.payload;
-      })
-      .addCase(fetchMovieDetails.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });
