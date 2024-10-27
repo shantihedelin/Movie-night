@@ -35,7 +35,7 @@ function App() {
   };
 
   return (
-    <div className="max-h-full bg-blue-200">
+    <div className="max-h-full bg-black text-white">
       <Helmet>
         <title>Filmkväll - hitta dom bästa filmerna</title>
         <meta
