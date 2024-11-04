@@ -17,7 +17,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <div className="bg-blue-200 pb-8 md:pb-52">
+      <div className="bg-black text-white pb-8 md:pb-52">
         <Helmet>
           <title>{movieDetails.title}</title>
           <meta

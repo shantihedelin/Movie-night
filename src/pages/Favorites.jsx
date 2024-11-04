@@ -15,7 +15,7 @@ export default function Favorites() {
   //* Den här sidan indexeras inte.
   return (
     <>
-      <div className="bg-blue-200 pb-52">
+      <div className="bg-black text-white pb-52">
         <Helmet>
           <title>Dina favorit filmer</title>
         </Helmet>

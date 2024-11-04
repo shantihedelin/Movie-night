@@ -67,7 +67,7 @@ function App() {
                   onClick={toggleSearchResults}
                   className="bg-transparent border-none mr-6"
                 >
-                  <RxCross1 className="flex hover:cursor-pointer text-2xl" />
+                  <RxCross1 className="flex hover:cursor-pointer text-2xl text-white" />
                 </button>
               </div>
             </div>
