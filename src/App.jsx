@@ -35,7 +35,7 @@ function App() {
   };
 
   return (
-    <div className="max-h-full bg-blue-200">
+    <div className="max-h-full bg-black text-white">
       <Helmet>
         <title>Filmkväll - hitta dom bästa filmerna</title>
         <meta
@@ -67,7 +67,7 @@ function App() {
                   onClick={toggleSearchResults}
                   className="bg-transparent border-none mr-6"
                 >
-                  <RxCross1 className="flex hover:cursor-pointer text-2xl" />
+                  <RxCross1 className="flex hover:cursor-pointer text-2xl text-white" />
                 </button>
               </div>
             </div>
